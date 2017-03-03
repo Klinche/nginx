@@ -12,10 +12,6 @@ ENV APPFILE app.php
 ADD nginx.conf /etc/nginx/
 ADD symfony.conf /etc/nginx/sites-available/
 
-RUN sed -i -e "s/APPFILE/$APPFILE/g" /etc/nginx/sites-available/symfony.conf
-RUN sed -i -e "s/URL/$URL/g" /etc/nginx/sites-available/symfony.conf
-
-
 RUN ln -s /etc/nginx/sites-available/symfony.conf /etc/nginx/sites-enabled/symfony
 RUN rm /etc/nginx/sites-enabled/default
 
@@ -23,7 +19,12 @@ RUN echo "upstream php-upstream { server php:9000; }" > /etc/nginx/conf.d/upstre
 
 RUN usermod -u 1000 www-data
 
-CMD ["nginx"]
+COPY docker-entrypoint.sh /entrypoint.sh
+ENTRYPOINT ["/entrypoint.sh"]
 
 EXPOSE 80
 EXPOSE 443
+
+CMD ["nginx"]
+
+
