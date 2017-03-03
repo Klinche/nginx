@@ -12,8 +12,8 @@ ENV APPFILE app.php
 ADD nginx.conf /etc/nginx/
 ADD symfony.conf /etc/nginx/sites-available/
 
-RUN sed -i -e 's/APPFILE/${APPFILE}/g' /etc/nginx/sites-available/symfony.conf
-RUN sed -i -e 's/URL/${URL}/g' /etc/nginx/sites-available/symfony.conf
+RUN sed -i -e "s/APPFILE/$APPFILE/g" /etc/nginx/sites-available/symfony.conf
+RUN sed -i -e "s/URL/$URL/g" /etc/nginx/sites-available/symfony.conf
 
 
 RUN ln -s /etc/nginx/sites-available/symfony.conf /etc/nginx/sites-enabled/symfony
