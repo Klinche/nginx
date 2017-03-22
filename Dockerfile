@@ -6,7 +6,7 @@ MAINTAINER Daniel Brooks <dbrooks@klinche.com>
 ENV URL symfony.dev
 ENV APPFILE app.php
 
-ADD symfony.conf /etc/nginx/sites-available/
+ADD symfony.conf /etc/nginx/sites-available/symfony.conf
 
 RUN ln -s /etc/nginx/sites-available/symfony.conf /etc/nginx/sites-enabled/symfony
 RUN rm /etc/nginx/sites-enabled/default
