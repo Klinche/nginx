@@ -8,6 +8,7 @@ ENV APPFILE app.php
 
 ADD symfony.conf /etc/nginx/sites-available/symfony.conf
 
+RUN mkdir -p /etc/nginx/sites-enabled
 RUN ln -s /etc/nginx/sites-available/symfony.conf /etc/nginx/sites-enabled/symfony
 RUN rm /etc/nginx/sites-enabled/default
 
