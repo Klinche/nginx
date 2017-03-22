@@ -6,10 +6,8 @@ MAINTAINER Daniel Brooks <dbrooks@klinche.com>
 ENV URL symfony.dev
 ENV APPFILE app.php
 
-ADD symfony.conf /etc/nginx/sites-available/symfony.conf
-
-RUN mkdir -p /etc/nginx/sites-enabled
-RUN ln -s /etc/nginx/sites-available/symfony.conf /etc/nginx/sites-enabled/symfony
+ADD symfony.conf /etc/nginx/conf.d/symfony.conf
+RUN rm /etc/nginx/conf.d/default.conf
 
 RUN echo "upstream php-upstream { server php:9000; }" > /etc/nginx/conf.d/upstream.conf
 
