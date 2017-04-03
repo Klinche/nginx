@@ -11,12 +11,4 @@ if [ "$1" = 'nginx' ]; then
     fi
 fi
 
-if [ "$WAIT_FOR_PHP" == "true" ]; then
-    while true
-    do
-      [ -f .php_setup ] && break
-      sleep 2
-    done
-fi
-
 exec "$@"
