@@ -5,6 +5,7 @@ MAINTAINER Daniel Brooks <dbrooks@klinche.com>
 
 ENV URL symfony.dev
 ENV APPFILE app.php
+ENV WAIT_FOR_PHP "false"
 
 ADD symfony.conf /etc/nginx/conf.d/symfony.conf
 RUN rm /etc/nginx/conf.d/default.conf
