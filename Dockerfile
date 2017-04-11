@@ -17,6 +17,8 @@ ENTRYPOINT ["/entrypoint.sh"]
 
 EXPOSE 80 443
 
+HEALTHCHECK CMD curl --fail "http://127.0.0.1/1/anonymous/status" || exit 1
+
 CMD ["nginx", "-g", "daemon off;"]
 
 
